@@ -130,10 +130,8 @@ if submitted:
     result = get_values(question_input)
     print(question_input)
 
+data = [(key, value) for key, value in result.items()]
 
-c29, c30, c31 = st.columns([1, 1, 2])
+with c2:
 
-
-with c29:
-
-    st.write(result)
+    st.write(data)
