@@ -130,10 +130,18 @@ if submitted:
     result = get_values(question_input)
     print(question_input)
 
+result_ = actors = result[0].split(", ")
 
+s = pd.Series(result, name="results")
+
+result_df = pd.DataFrame(s)
 c4, c5 = st.columns([6, 1])
 
 with c4:
 
-    st.write(result)
     st.text(result)
+    CSVButton = download_button(
+        result_df,
+        "FlaggedFile.csv",
+        "Download to CSV",
+    )
