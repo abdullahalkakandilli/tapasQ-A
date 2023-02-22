@@ -136,3 +136,4 @@ c4, c5 = st.columns([6, 1])
 with c4:
 
     st.write(result)
+    st.text_area(result)
