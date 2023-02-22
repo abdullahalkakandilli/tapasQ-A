@@ -68,6 +68,7 @@ else:
 
     st.stop()
 
+answers = []
 
 def get_values(question_input):
     def get_values(question):
@@ -133,8 +134,7 @@ if submitted:
 
 c29, c30, c31 = st.columns([1, 1, 2])
 
-result = "Result: will be updated after submission"
 
 with c29:
 
-    st.text(result)
+    st.text(answers)
