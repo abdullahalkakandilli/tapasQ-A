@@ -130,7 +130,7 @@ if submitted:
     result = get_values(question_input)
     print(question_input)
 
-data = [(key, value) for key, value in result.items()]
+data = pd.DataFrame(result)
 
 with c2:
 
