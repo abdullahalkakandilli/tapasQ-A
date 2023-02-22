@@ -76,9 +76,8 @@ def get_values(question_input):
         model = TapasForQuestionAnswering.from_pretrained(model_name)
         tokenizer = TapasTokenizer.from_pretrained(model_name)
 
-        queries = [
-            question
-        ]
+        queries = question
+
 
         table = pd.DataFrame.from_dict(new_data)
 
