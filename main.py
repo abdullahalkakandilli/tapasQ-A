@@ -133,7 +133,7 @@ if submitted:
 
 c29, c30, c31 = st.columns([1, 1, 2])
 
-
+restult=""
 with c29:
 
     st.write(result)
