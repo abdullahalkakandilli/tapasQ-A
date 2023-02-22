@@ -130,6 +130,7 @@ result_df = pd.DataFrame()
 if submitted:
 
     result = get_values(question_input)
+    print(question_input)
 
 
 c29, c30, c31 = st.columns([1, 1, 2])
