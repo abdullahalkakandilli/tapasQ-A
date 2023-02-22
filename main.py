@@ -132,7 +132,7 @@ if submitted:
 
 result_ = result[0].split(", ")
 
-s = pd.Series(result, name="results")
+s = pd.Series(result_, name="results")
 
 result_df = pd.DataFrame(s)
 c4, c5 = st.columns([6, 1])
