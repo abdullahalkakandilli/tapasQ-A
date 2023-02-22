@@ -130,8 +130,8 @@ if submitted:
     result = get_values(question_input)
     print(question_input)
 
-data = pd.DataFrame(result)
+
 
 with c2:
 
-    st.write(data)
+    st.write(result[0])
