@@ -119,6 +119,7 @@ def get_values(question):
 
     return answers
 result=""
+result_ = ""
 form = st.form(key="annotation")
 with form:
     question_input = st.text_input("Enter your query here")
