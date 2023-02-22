@@ -69,55 +69,55 @@ else:
     st.stop()
 
 
-def get_values(question_input):
-    def get_values(question):
-        model_name = "google/tapas-base-finetuned-wtq"
-        model = TapasForQuestionAnswering.from_pretrained(model_name)
-        tokenizer = TapasTokenizer.from_pretrained(model_name)
 
-        queries = question
+def get_values(question):
+    model_name = "google/tapas-base-finetuned-wtq"
+    model = TapasForQuestionAnswering.from_pretrained(model_name)
+    tokenizer = TapasTokenizer.from_pretrained(model_name)
+
+    queries = [question]
 
 
-        table = pd.DataFrame.from_dict(new_data)
+    table = pd.DataFrame.from_dict(new_data)
 
-        inputs = tokenizer(table=table, queries=queries, padding="max_length", return_tensors="pt")
+    inputs = tokenizer(table=table, queries=queries, padding="max_length", return_tensors="pt")
 
-        outputs = model(**inputs)
+    outputs = model(**inputs)
 
-        predicted_answer_coordinates, predicted_aggregation_indices = tokenizer.convert_logits_to_predictions(
+    predicted_answer_coordinates, predicted_aggregation_indices = tokenizer.convert_logits_to_predictions(
 
-            inputs, outputs.logits.detach(), outputs.logits_aggregation.detach()
+        inputs, outputs.logits.detach(), outputs.logits_aggregation.detach()
 
-        )
+    )
 
-        # let's print out the results:
+    # let's print out the results:
 
-        id2aggregation = {0: "NONE", 1: "SUM", 2: "AVERAGE", 3: "COUNT"}
+    id2aggregation = {0: "NONE", 1: "SUM", 2: "AVERAGE", 3: "COUNT"}
 
-        aggregation_predictions_string = [id2aggregation[x] for x in predicted_aggregation_indices]
+    aggregation_predictions_string = [id2aggregation[x] for x in predicted_aggregation_indices]
 
-        answers = []
+    answers = []
 
-        for coordinates in predicted_answer_coordinates:
+    for coordinates in predicted_answer_coordinates:
 
-            if len(coordinates) == 1:
+        if len(coordinates) == 1:
 
-                # only a single cell:
+            # only a single cell:
 
-                answers.append(table.iat[coordinates[0]])
+            answers.append(table.iat[coordinates[0]])
 
-            else:
+        else:
 
-                # multiple cells
+            # multiple cells
 
-                cell_values = []
+            cell_values = []
 
-                for coordinate in coordinates:
-                    cell_values.append(table.iat[coordinate])
+            for coordinate in coordinates:
+                cell_values.append(table.iat[coordinate])
 
-                answers.append(", ".join(cell_values))
+            answers.append(", ".join(cell_values))
 
-        return answers
+    return answers
 
 form = st.form(key="annotation")
 with form:
