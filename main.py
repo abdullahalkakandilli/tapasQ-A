@@ -118,7 +118,7 @@ def get_values(question):
             answers.append(", ".join(cell_values))
 
     return answers
-
+result=""
 form = st.form(key="annotation")
 with form:
     question_input = st.text_input("Enter your query here")
@@ -133,7 +133,7 @@ if submitted:
 
 c29, c30, c31 = st.columns([1, 1, 2])
 
-result=""
+
 with c29:
 
     st.write(result)
