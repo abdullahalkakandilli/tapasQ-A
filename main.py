@@ -131,7 +131,8 @@ if submitted:
     print(question_input)
 
 
+c4, c5 = st.columns([6, 1])
 
-with c2:
+with c4:
 
     st.write(result)
