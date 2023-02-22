@@ -134,4 +134,4 @@ if submitted:
 
 with c2:
 
-    st.write(result[0])
+    st.write(result)
