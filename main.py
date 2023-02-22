@@ -130,12 +130,11 @@ if submitted:
 
     result = get_values(question_input)
     print(question_input)
+    result_ = result[0].split(", ")
+    s = pd.Series(result_, name="results")
+    result_df = pd.DataFrame(s)
 
-result_ = result[0].split(", ")
 
-s = pd.Series(result_, name="results")
-
-result_df = pd.DataFrame(s)
 c4, c5 = st.columns([6, 1])
 
 with c4:
