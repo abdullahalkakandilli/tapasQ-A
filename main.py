@@ -130,7 +130,7 @@ if submitted:
     result = get_values(question_input)
     print(question_input)
 
-result_ = actors = result[0].split(", ")
+result_ = result[0].split(", ")
 
 s = pd.Series(result, name="results")
 
