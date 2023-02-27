@@ -145,7 +145,5 @@ with c4:
         "Download to CSV",
     )
 
-video_file = open('https://youtu.be/5rACpMjHBN0', 'rb')
-video_bytes = video_file.read()
 
-st.video(video_bytes)
+st.video('https://youtu.be/5rACpMjHBN0')
