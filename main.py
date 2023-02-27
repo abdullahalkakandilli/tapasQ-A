@@ -15,10 +15,9 @@ def _max_width_():
     }}
     </style>    
     """,
-        unsafe_allow_html=True,
+        unsafe_allow_html=False,
     )
 
-st.set_page_config(page_icon="✂️", page_title="Tapas")
 
 
 c2, c3 = st.columns([6, 1])
