@@ -145,6 +145,9 @@ with c4:
         "Download to CSV",
 
     )
+c6, c7, c8 = st.columns([1, 6, 1])
+
+with c7:
     st.video('https://youtu.be/5rACpMjHBN0')
 
 
