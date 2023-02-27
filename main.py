@@ -5,19 +5,13 @@ from transformers import TapasTokenizer, TapasForQuestionAnswering
 
 import pandas as pd
 
-def _max_width_():
-    max_width_str = f"max-width: 1800px;"
-    st.markdown(
-        f"""
-    <style>
-    .reportview-container .main .block-container{{
-        {max_width_str}
-    }}
-    </style>    
-    """,
-        unsafe_allow_html=False,
-    )
-
+hide_streamlit_style = """
+            <style>
+            #MainMenu {visibility: hidden;}
+            footer {visibility: hidden;}
+            </style>
+            """
+st.markdown(hide_streamlit_style, unsafe_allow_html=True)
 
 
 c2, c3 = st.columns([6, 1])
