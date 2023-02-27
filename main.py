@@ -18,7 +18,7 @@ def _max_width_():
         unsafe_allow_html=True,
     )
 
-
+st.set_page_config(page_icon="✂️", page_title="Question Answering - CSV")
 
 c2, c3 = st.columns([6, 1])
 
