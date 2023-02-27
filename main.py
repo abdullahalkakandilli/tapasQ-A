@@ -5,13 +5,19 @@ from transformers import TapasTokenizer, TapasForQuestionAnswering
 
 import pandas as pd
 
-hide_streamlit_style = """
-            <style>
-            #MainMenu {visibility: hidden;}
-            footer {visibility: hidden;}
-            </style>
-            """
-st.markdown(hide_streamlit_style, unsafe_allow_html=True)
+def _max_width_():
+    max_width_str = f"max-width: 1800px;"
+    st.markdown(
+        f"""
+    <style>
+    .reportview-container .main .block-container{{
+        {max_width_str}
+    }}
+    </style>    
+    """,
+        unsafe_allow_html=True,
+    )
+
 
 
 c2, c3 = st.columns([6, 1])
@@ -138,3 +144,8 @@ with c4:
         "FlaggedFile.csv",
         "Download to CSV",
     )
+
+video_file = open('https://youtu.be/5rACpMjHBN0', 'rb')
+video_bytes = video_file.read()
+
+st.video(video_bytes)
